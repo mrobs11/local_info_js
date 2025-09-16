@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Local Info JS</title>
+        <style>
+            body {
+                background-color: #000000;
+                color: #d9d9d9;
+                font-family: "Lucida Grande", sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+            #local-info-display {
+                width: 277px;
+                height: 60px;
+                overflow: hidden; /* Hide anything that overflows */
+                display: flex; /* Use flexbox for alignment */
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Horizontally center items */
+                justify-content: flex-start; /* Align items to the start (top) */
+                border: none; /* Remove border for a cleaner look */
+                padding: 0; /* Remove padding */
+                border-radius: 0; /* Remove border-radius */
+                text-align: center; /* Ensure all inline content and text is centered */
+                background-color: #000000; /* Match body background */
+                box-sizing: border-box; /* Include padding and border in the element\'s total width and height */
+            }
+            #local-info-display #time-weather-label {
+                font-size: 12px; /* Slightly larger font size */
+                line-height: 1;
+                margin: 0; /* Ensure no margin */
+                white-space: nowrap;
+                color: #d9d9d9;
+                background-color: #333; /* Distinct background to ensure visibility */
+                padding: 0 5px; /* Removed all vertical padding */
+                border-radius: 3px; /* Slightly rounded corners */
+                width: 100%; /* Ensure label spans full width */
+                text-align: center; /* Center text within the label */
+            }
+            #time-weather-container {
+                display: flex;
+                align-items: center;
+                justify-content: center; /* Center time and weather info */
+                width: 100%; /* Take full width of parent */
+                /* Removed flex-grow: 1; to prevent it from taking extra vertical space */
+                margin: 0; /* Ensure no margin */
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #title {
+                display: none; /* Keep title hidden */
+            }
+            #local-info-display #time {
+                font-size: 30px; /* Increased font size for time to visually balance with stacked weather */
+                font-weight: bold;
+                margin: 0;
+                line-height: 1;
+                white-space: nowrap; /* Prevent wrapping */
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #weather-info {
+                display: flex;
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start; /* Align items to the start (left) */
+                margin: 0 0 0 10px; /* Add left margin for spacing */
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #temp {
+                font-size: 16px; /* Adjusted font size for temperature to match time */
+                color: #d9d9d9;
+                margin-right: 3px; /* Smaller space between temp and description */
+                line-height: 1;
+                white-space: nowrap; /* Prevent wrapping */
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #weather-description {
+                font-size: 11px; /* Further adjusted font for description to fit more text */
+                color: #d9d9d9;
+                margin-right: 3px; /* Smaller space between description and icon */
+                margin-top: 2px; /* Small margin above description */
+                line-height: 1;
+                white-space: nowrap; /* Prevent wrapping */
+                max-width: 60px; /* Further limit width for description */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #icon {
+                margin: 0; /* Remove margin as it\'s part of weather-info flex */
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 0; /* Ensure no padding */
+            }
+            #local-info-display #icon img {
+                height: 30px; /* Further constrain image height */
+                width: auto;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="local-info-display">
+            <!-- Content will be loaded here by local_info.js -->
+        </div>
+
+        <!-- Include jQuery (assuming it's available in your project or via CDN) -->
+        <!-- For demonstration, I'll use a CDN. In your CakePHP app, you might use HtmlHelper::script() -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Include the local_info.js script -->
+        <script src="/local_info.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                // Example usage: Call loadLocalInfo with a sample zip and timezone offset
+                // The URL http://fmwidgets.rdidiamonds.com/clients/local_info/92646/-3
+                // suggests zip = 92646 and timezoneOffset = -3
+                // Call loadLocalInfo without arguments; it will now parse them from the URL.
+                // For example, if you navigate to http://localhost:8080/clients/local_info/92646/-3
+                window.loadLocalInfo(
+                    undefined,
+                    undefined,
+                    "local-info-display",
+                );
+            });
+        </script>
+    </body>
+</html>
