@@ -52,6 +52,7 @@
                 /* Removed flex-grow: 1; to prevent it from taking extra vertical space */
                 margin: 0; /* Ensure no margin */
                 padding: 0; /* Ensure no padding */
+                gap: 10px; /* Add gap for spacing between time and weather */
             }
             #local-info-display #title {
                 display: none; /* Keep title hidden */
@@ -68,7 +69,7 @@
                 display: flex;
                 flex-direction: column; /* Stack items vertically */
                 align-items: flex-start; /* Align items to the start (left) */
-                margin: 0 0 0 10px; /* Add left margin for spacing */
+                margin: 0; /* Remove margin from weather-info */
                 padding: 0; /* Ensure no padding */
             }
             #local-info-display #temp {
