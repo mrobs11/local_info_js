@@ -5,7 +5,7 @@
     "main": "local_info.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "serve . --single --port 3001"
+        "start": "http-server . -p 3001"
     },
     "keywords": [],
     "author": "",
